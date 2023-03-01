@@ -31,8 +31,9 @@ jobs:
         node-version: [16.x]
 
     steps:
-      - name: Build app on VM
-        uses: appleboy/ssh-action@master
+      - uses: actions/checkout@v2      
+      - name: Testing Build pre-Deploy        
+        uses: actions/setup-node@v2
         with:
           host: ${{ secrets.HOST }}
           username: ${{ secrets.USERNAME }}
@@ -40,7 +41,7 @@ jobs:
           port: ${{ secrets.PORT }}
           script: |
             eval "$(ssh-agent -s)"
-            ssh-add ~/.ssh/ssh-senpro-20
+            ssh-add ~/.ssh/senpro-ssh-20
             echo "Cek folder project";
             [ ! -d "/home/seniorproject-rabu/senpro/456373/modul01/senpro-github-action/" ]&&
               {
