@@ -40,9 +40,9 @@ jobs:
             port: ${{ secrets.PORT }}
             script:
               eval "$(ssh-agent -s)"
-              ssh-add ~/.ssh/ssh-senpro-20
+              ssh-add ~/.ssh/senpro-ssh-20
               echo "Cek folder project";
-              [ ! -d "/home/MuhammadZikriansyah/senpro/456373/modul01/senpro-github-action/" ]&&
+              [ ! -d "/home/seniorproject-rabu/senpro/456373/modul01/senpro-github-action/" ]&&
                 {
                   echo "Repository belum di-clone. Cloning...";
                   mkdir -p  ~/senpro/456373/modul01;
